@@ -1,0 +1,75 @@
+@import '../../styles/helpers/helpers';
+
+// ########################
+// NAVIGATION PROPERTIES
+// ########################
+.navigation {
+    display: flex;
+    align-items: center;
+
+    height: 55px;
+    background-color: $white;
+}
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding: 5px;
+
+    img {
+        height: 36px;
+    }
+}
+
+.primary-navigation,
+.secondary-navigation {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    margin-right: 25px;
+
+    a {
+        color: $gray-800;
+        text-decoration: none;
+
+        &:hover {
+            color: $gray-500;
+        }
+    }
+}
+
+// ------------------------
+// SEARCHBAR PROPERTIES
+// ------------------------
+.searchbar-container {
+    input {
+        font-size: 16px;
+        color: $gray-500;
+
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        width: 200px;
+        background-color: $gray-300;
+
+        &::placeholder {
+            color: $gray-500;
+        }
+
+        &:focus {
+            outline: none;
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1pt #d8d8d8 inset;
+        }
+    }
+}
+
+// ########################
+// RESPONSIVE PROPERTIES
+// ########################
+@media (max-width: 910px) {
+}

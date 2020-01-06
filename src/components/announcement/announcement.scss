@@ -1,0 +1,22 @@
+@import '../../styles/helpers/helpers';
+
+.announcement {
+    @include news-banner;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.announcement-type {
+    color: $white;
+    font-size: 16px;
+
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: #a690ff;
+}
+
+.announcement-message {
+    color: $white;
+}

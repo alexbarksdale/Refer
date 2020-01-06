@@ -1,0 +1,95 @@
+@import '../styles/helpers/variables';
+
+// ########################
+// GLOBAL PROPERTIES
+// ########################
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease 0s;
+}
+
+html,
+body,
+#root,
+#root > div {
+    height: 100%;
+}
+
+body {
+    background-color: $gray-300;
+}
+
+.content {
+    min-height: 100%;
+}
+
+.main {
+    overflow: auto;
+    padding-bottom: 100px;
+}
+
+.container {
+    width: 1475px;
+    padding: 0px 25px;
+    margin: 0px auto;
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 25px;
+
+    background-color: $white;
+    box-shadow: 0px 3px 0px 0px $card-shadow;
+}
+
+.refergg {
+    color: $primary;
+}
+
+// ------------------------
+// SCROLLBAR PROPERTIES
+// ------------------------
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #a4a4a4;
+}
+
+// ########################
+// RESPONSIVE PROPERTIES
+// ########################
+@media (max-width: 1581px) {
+    .container {
+        width: 1275px;
+    }
+}
+
+@media (max-width: 1332px) {
+    .container {
+        width: 1000px;
+    }
+}
+
+@media (max-width: 1056px) {
+    .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}

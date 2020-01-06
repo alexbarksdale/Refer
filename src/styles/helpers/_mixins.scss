@@ -1,0 +1,24 @@
+@mixin news-banner {
+    background: linear-gradient(90deg, rgba(176, 158, 255, 1) 0%, rgba(239, 197, 150, 1) 100%);
+}
+
+@mixin refer-hover {
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+@mixin refer-input {
+    padding: 10px;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        border-radius: 8px;
+        box-shadow: 0 0 0 1pt #d8d8d8 inset;
+    }
+}
