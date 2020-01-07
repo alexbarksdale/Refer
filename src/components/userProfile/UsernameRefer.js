@@ -35,7 +35,7 @@ UsernameRefer.defaultProps = {
     usernameSize: 25,
     linkSize: 16,
     user: {
-        username: 'Default' // ! TODO Use currently authenticated user?
+        username: 'CURRENTPROFILE' // ! TODO Use currently authenticated user?
     }
 };
 

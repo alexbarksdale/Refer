@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import UserProfileCard from './UserProfileCard';
+import Listing from '../listing/Listing';
 import './userProfile.scss';
 import { refergg } from '../../axios';
 
@@ -12,11 +13,10 @@ class UserProfile extends Component {
     }
 
     componentDidMount() {
-        const {
-            match: { params }
-        } = this.props;
+        const { match: { params } } = this.props;
 
-        refergg.get(`/user/get/${params.userName}`).then(({ data: user }) => {
+        refergg.get(`/user/get/${params.userName}`)
+          .then(({ data: user }) => {
             this.setState({ user });
         });
     }
@@ -26,6 +26,10 @@ class UserProfile extends Component {
         return (
             <div className='profile-wrapper'>
                 <UserProfileCard user={user} />
+                <div className='profile-item-wrapper'>
+                    <Listing isTypeFollow />
+                    <Listing isTypeRegular listingTitle='Browse Others' />
+                </div>
             </div>
         );
     }
@@ -42,9 +46,10 @@ UserProfile.propTypes = {
 UserProfile.defaultProps = {
     match: PropTypes.shape({
         params: PropTypes.shape({
-            userName: 'Default' // ! TODO Make currently authenticated user?
+            userName: 'CURRENTPROFILE' // ! TODO Make currently authenticated user?
         })
     })
 };
+
 
 export default UserProfile;
