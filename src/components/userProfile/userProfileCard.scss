@@ -21,6 +21,7 @@
     flex-direction: column;
     margin-top: -70px;
     border-radius: 25px;
+    width: max-content;
 
     img {
         border: 6px solid $white;
@@ -68,10 +69,12 @@
     color: $gray-450;
     ul {
         display: flex;
+        flex-wrap: wrap;
         list-style: none;
 
         li {
             margin-right: 15px;
+            margin-bottom: 6px;
 
             i {
                 margin-right: 6px;
@@ -90,8 +93,6 @@
 }
 
 .profile-description {
-    margin-top: 7px;
-
     p {
         color: $gray-500;
     }
@@ -114,5 +115,20 @@
 
     .profile-sub {
         margin-top: 13px;
+    }
+}
+
+@media (max-width: 575px) {
+    .profile-info {
+        margin: 0;
+    }
+
+    .profile-avatar-follow {
+        margin-top: 0px;
+
+        img {
+            height: 100px;
+            width: 100px;
+        }
     }
 }

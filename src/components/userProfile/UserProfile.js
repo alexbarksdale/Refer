@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import UserProfileCard from './UserProfileCard';
 import Listing from '../listing/Listing';
@@ -13,10 +13,11 @@ class UserProfile extends Component {
     }
 
     componentDidMount() {
-        const { match: { params } } = this.props;
+        const {
+            match: { params }
+        } = this.props;
 
-        refergg.get(`/user/get/${params.userName}`)
-          .then(({ data: user }) => {
+        refergg.get(`/user/get/${params.userName}`).then(({ data: user }) => {
             this.setState({ user });
         });
     }
@@ -29,6 +30,13 @@ class UserProfile extends Component {
                 <div className='profile-item-wrapper'>
                     <Listing isTypeFollow />
                     <Listing isTypeRegular listingTitle='Browse Others' />
+                </div>
+                <div className='maintenance'>
+                    <h3>
+                        <i className='fas fa-tools' />
+                        Currently under construction
+                        <i className='fas fa-tools' />
+                    </h3>
                 </div>
             </div>
         );
@@ -46,10 +54,9 @@ UserProfile.propTypes = {
 UserProfile.defaultProps = {
     match: PropTypes.shape({
         params: PropTypes.shape({
-            userName: 'CURRENTPROFILE' // ! TODO Make currently authenticated user?
+            userName: 'Default' // ! TODO Make currently authenticated user?
         })
     })
 };
-
 
 export default UserProfile;

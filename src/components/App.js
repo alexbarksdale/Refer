@@ -6,6 +6,7 @@ import history from '../history';
 import Navigation from './navigation/Navigation';
 import Announcement from './announcement/Announcement';
 import Home from './home/Home';
+import Authentication from './authentication/Authentication';
 import UserProfile from './userProfile/UserProfile';
 import Footer from './footer/Footer';
 import './app.scss';
@@ -30,6 +31,17 @@ export default () => {
                                 <Switch>
                                     <Route path='/browse-stacks' exact component={Home} />
                                     <Route path='/changeLater' exact component={UserProfile} />
+                                    <Route
+                                        path='/login'
+                                        exact
+                                        render={() => <Authentication isTypeLogin />}
+                                    />
+                                    <Route
+                                        path='/signup'
+                                        exact
+                                        render={() => <Authentication isTypeLogin={false} />}
+                                    />
+                                    <Route path='/:userName' exact component={UserProfile} />
                                 </Switch>
                             </div>
                         </div>

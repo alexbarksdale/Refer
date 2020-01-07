@@ -78,7 +78,7 @@ UserProfileCard.propTypes = {
 
 UserProfileCard.defaultProps = {
     user: {
-        username: 'CURRENTPROFILE' // ! TODO Use currently authenticated user?
+        username: 'Default' // ! TODO Use currently authenticated user?
     }
 };
 

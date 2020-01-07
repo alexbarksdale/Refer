@@ -1,0 +1,66 @@
+@import '../../styles/helpers/helpers';
+
+// ########################
+// INPUT PROPERTIES
+// ########################
+.input-container {
+    input {
+        @include refer-input;
+        color: $gray-500;
+        background-color: $gray-300;
+        margin-bottom: 20px;
+        width: 100%;
+
+        &::placeholder {
+            color: $gray-400;
+        }
+
+        &:focus {
+            outline: none;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1pt #d8d8d8 inset;
+        }
+    }
+}
+
+// ------------------------
+// SUB INPUT PROPERTIES
+// ------------------------
+.sub-container {
+    h3 {
+        color: $gray-800;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    select {
+        @include refer-input;
+        appearance: none;
+        color: $gray-500;
+        background-color: $gray-300;
+
+        margin-right: 6px;
+        margin-bottom: 20px;
+        padding: 10px 3.5em 10px 1em;
+    }
+
+    select.date-selector {
+        background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+            linear-gradient(135deg, gray 50%, transparent 50%),
+            linear-gradient(to right, #ccc, #ccc);
+        background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px),
+            calc(100% - 2.5em) 0.5em;
+        background-size: 5px 5px, 5px 5px, 1px 1.5em;
+        background-repeat: no-repeat;
+    }
+
+    input {
+        @extend select;
+        padding: 10px;
+        width: 60px;
+
+        &::placeholder {
+            color: $gray-400;
+        }
+    }
+}

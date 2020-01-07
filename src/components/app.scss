@@ -54,6 +54,21 @@ body {
     color: $primary;
 }
 
+// --------------------------
+// MAINTENANCE MSG PROPERTIES
+// --------------------------
+.maintenance {
+    display: flex;
+    justify-content: center;
+    h3 {
+        color: $gray-500;
+
+        i {
+            margin: 0px 9px;
+        }
+    }
+}
+
 // ------------------------
 // SCROLLBAR PROPERTIES
 // ------------------------
