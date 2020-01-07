@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.listing-content {
+    width: 80%;
+}
+
 .listing-follow {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
