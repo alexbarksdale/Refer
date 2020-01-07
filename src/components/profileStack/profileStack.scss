@@ -1,0 +1,43 @@
+@import '../../styles/helpers/helpers';
+
+// ########################
+// PROFILE STACK PROPERTIES
+// ########################
+.profile-stack {
+    h3 {
+        color: $gray-800;
+        margin-bottom: 13px;
+    }
+}
+
+.stacks {
+    ul {
+        list-style: none;
+        li {
+            margin-bottom: 6px;
+            a {
+                color: $primary;
+                font-size: 17px;
+                text-decoration: none;
+
+                i {
+                    color: $gray-800;
+                    margin-right: 6px;
+                }
+
+                &:hover {
+                    @include refer-hover;
+                }
+            }
+        }
+    }
+}
+
+.no-stack {
+    color: $gray-450;
+}
+@media (max-width: 1056px) {
+    .profile-stack {
+        margin-top: 13px;
+    }
+}

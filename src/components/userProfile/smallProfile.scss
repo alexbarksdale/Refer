@@ -1,0 +1,16 @@
+@import '../../styles/helpers/helpers';
+
+// #########################
+// SMALL PROFILE PROPERTIES
+// #########################
+.small-profile {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    @include refer-hover;
+
+    img {
+        border-radius: 12px;
+        margin-right: 10px;
+    }
+}

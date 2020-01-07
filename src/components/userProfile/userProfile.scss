@@ -1,0 +1,21 @@
+@import '../../styles/helpers/helpers';
+
+// ########################
+// USER PROPERTIES
+// ########################
+.profile-wrapper {
+    display: grid;
+    grid-gap: 15px;
+}
+
+.profile-item-wrapper {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 1056px) {
+    .profile-item-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

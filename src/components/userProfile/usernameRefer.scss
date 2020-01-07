@@ -1,0 +1,19 @@
+@import '../../styles/helpers/helpers';
+
+// #########################
+// USERNAME_REFER PROPERTIES
+// #########################
+.profile-main {
+    h1 {
+        color: $gray-800;
+    }
+
+    p {
+        cursor: pointer;
+        color: $gray-450;
+
+        &:hover {
+            @include refer-hover;
+        }
+    }
+}

@@ -6,10 +6,7 @@ import history from '../history';
 import Navigation from './navigation/Navigation';
 import Announcement from './announcement/Announcement';
 import Home from './home/Home';
-import StatusMsgs from './utils/StatusMsgs';
 import UserProfile from './userProfile/UserProfile';
-import Authentication from './authentication/Authentication';
-import UserDashboard from './userDashboard/UserDashboard';
 import Footer from './footer/Footer';
 import './app.scss';
 
@@ -26,7 +23,6 @@ export default () => {
                     <Router history={history}>
                         <Navigation />
                         <Announcement />
-                        <StatusMsgs />
 
                         <div>
                             <div className='container' style={{ marginTop: '35px' }}>

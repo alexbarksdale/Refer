@@ -1,0 +1,118 @@
+@import '../../styles/helpers/helpers';
+
+// ########################
+// PROFILE PROPERTIES
+// ########################
+.profile-header {
+    height: 240px;
+    border-radius: 25px;
+    background-color: #7c7c7c; // incase of no image
+}
+
+// ------------------------
+// PROFILE INFO PROPERTIES
+// ------------------------
+.profile-info {
+    display: flex;
+    margin: 0px 50px;
+}
+.profile-avatar-follow {
+    display: flex;
+    flex-direction: column;
+    margin-top: -70px;
+    border-radius: 25px;
+
+    img {
+        border: 6px solid $white;
+        border-radius: 25px;
+    }
+
+    button {
+        padding: 4px 0px;
+        margin-top: 5px;
+
+        color: $gray-450;
+        font-size: 16px;
+        border-radius: 25px;
+        background-color: $interactive-light;
+
+        i {
+            margin-right: 7px;
+        }
+
+        &:hover {
+            color: $gray-500;
+            background-color: $gray-350;
+        }
+    }
+}
+
+// ------------------------
+// PROFILE USER PROPERTIES
+// ------------------------
+.profile-user {
+    display: grid;
+    grid-template-columns: 0px 1fr 500px;
+
+    margin: 14px;
+}
+
+// ------------------------
+// PROFILE SUB PROPERTIES
+// ------------------------
+.profile-sub {
+    margin-top: 52px;
+}
+
+.profile-items {
+    color: $gray-450;
+    ul {
+        display: flex;
+        list-style: none;
+
+        li {
+            margin-right: 15px;
+
+            i {
+                margin-right: 6px;
+            }
+
+            a {
+                color: $gray-450;
+                text-decoration: none;
+
+                &:hover {
+                    @include refer-hover;
+                }
+            }
+        }
+    }
+}
+
+.profile-description {
+    margin-top: 7px;
+
+    p {
+        color: $gray-500;
+    }
+}
+
+@media (max-width: 1332px) {
+    .profile-user {
+        grid-template-columns: 0px 1fr 240px;
+    }
+}
+
+@media (max-width: 1056px) {
+    .profile-content {
+        border-radius: 0px !important;
+    }
+
+    .profile-user {
+        grid-template-columns: none;
+    }
+
+    .profile-sub {
+        margin-top: 13px;
+    }
+}
