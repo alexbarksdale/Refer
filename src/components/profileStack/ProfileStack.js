@@ -15,14 +15,29 @@ const ProfileStack = () => {
                 <ul>
                     <li>
                         <a href=''>
-                            <i className='fab fa-steam' />
-                            Username
+                            <img
+                                src='https://img.icons8.com/ios-filled/25/000000/steam-circled.png'
+                                alt='Steam Icon'
+                            />
+                            Example
                         </a>
                     </li>
                     <li>
                         <a href=''>
-                            <i className='fab fa-steam' />
-                            Username
+                            <img
+                                src='https://img.icons8.com/ios-glyphs/25/000000/battle-net.png'
+                                alt='Battle.net Icon'
+                            />
+                            Example#51235
+                        </a>
+                    </li>
+                    <li>
+                        <a href=''>
+                            <img
+                                src='https://img.icons8.com/ios-filled/25/000000/epic-games.png'
+                                alt='Epic Games Icon'
+                            />
+                            Example
                         </a>
                     </li>
                 </ul>

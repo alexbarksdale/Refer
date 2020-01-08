@@ -16,12 +16,14 @@
         li {
             margin-bottom: 6px;
             a {
+                display: flex;
+                align-items: center;
                 color: $primary;
                 font-size: 17px;
                 text-decoration: none;
 
-                i {
-                    color: $gray-800;
+                img {
+                    opacity: 0.7;
                     margin-right: 6px;
                 }
 
