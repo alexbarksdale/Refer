@@ -1,0 +1,100 @@
+@import '../../styles/helpers/helpers';
+
+// ########################
+// DROPDOWN PROPERTIES
+// ########################
+.user-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+
+    button {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        background-color: transparent;
+
+        img {
+            margin-right: 8px;
+            border-radius: 8px;
+        }
+
+        i {
+            margin-left: 6px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        @include refer-hover;
+    }
+
+    ul {
+        z-index: 1;
+        top: 45px;
+        right: 0px;
+        width: 250px;
+        margin-top: 10px;
+        border-radius: 15px;
+        position: absolute;
+        padding: 6px;
+
+        list-style-type: none;
+        font-weight: bold;
+        background-color: white;
+        box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.2);
+
+        a {
+            color: $gray-800;
+            text-decoration: none;
+
+            li {
+                padding: 13px 16px;
+                border-radius: 15px;
+                margin-bottom: 6px;
+                display: flex;
+                align-items: center;
+
+                p {
+                    color: $gray-500;
+                    margin-top: 4px;
+                }
+
+                i {
+                    color: $gray-800;
+                    margin-right: 8px;
+                }
+
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+
+                &:hover {
+                    background-color: #e5e5e5;
+                }
+            }
+
+            &:hover {
+                color: $gray-800;
+            }
+        }
+    }
+}
+
+.drop-divider {
+    margin: 8px 0px;
+    border-bottom: 2px solid $divider;
+}
+
+.user-profile {
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+@media (max-width: 653px) {
+    .user-dropdown ul {
+        right: unset;
+    }
+}

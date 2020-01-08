@@ -1,0 +1,42 @@
+@import '../../styles/helpers/helpers';
+
+// ###########################
+// ACCOUNT SETTINGS PROPERTIES
+// ###########################
+.editable-property {
+    @include refer-input;
+    color: $gray-500;
+    background-color: $gray-300;
+
+    margin-right: 7px;
+}
+
+.edit-property {
+    display: flex;
+    margin-top: 10px;
+
+    button {
+        margin-right: 7px;
+        @include refer-input;
+        color: $gray-500;
+        background-color: $gray-300;
+    }
+}
+
+.btn-submit:hover {
+    color: $white;
+    background: $success;
+    transition: 0.1s;
+}
+
+.btn-cancel:hover {
+    color: $white;
+    background: $error;
+    transition: 0.1s;
+}
+
+@media (max-width: 513px) {
+    .db-content {
+        border-radius: 0px !important;
+    }
+}

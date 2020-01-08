@@ -1,0 +1,72 @@
+@import '../../styles/helpers/helpers';
+
+// ########################
+// DASHBOARD PROPERTIES
+// ########################
+.user-dashboard {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.db-content {
+    h2 {
+        color: $gray-800;
+        margin-bottom: 25px;
+    }
+}
+
+.db-property {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+        margin-bottom: 9px;
+
+        color: $gray-450;
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: $gray-400;
+        font-size: 18px;
+        font-weight: 100;
+    }
+}
+
+.btn-edit {
+    color: $primary;
+    background-color: transparent;
+    font-size: 16px;
+    float: right;
+    border-radius: 8px;
+
+    &:hover {
+        @include refer-hover;
+    }
+}
+
+.db-divider {
+    margin: 16px 0px;
+    border-bottom: 2px solid $divider;
+}
+
+@media (max-width: 1055px) {
+    .user-dashboard {
+        margin: 0px 27px;
+    }
+}
+
+@media (max-width: 704px) {
+    .user-dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 513px) {
+    .user-dashboard {
+        margin: 0;
+    }
+}

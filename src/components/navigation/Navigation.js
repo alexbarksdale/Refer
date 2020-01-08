@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
-import logo from '../../assets/images/refergg.png';
 import history from '../../history';
+import AccountDropdown from './AccountDropdown';
+import Toggle from '../utils/Toggle';
+import logo from '../../assets/images/refergg.png';
+import avatar from '../../assets/images/defaultAvatar.jpg';
 import './navigation.scss';
 
 const options = [
@@ -13,14 +16,6 @@ const options = [
     {
         value: 'browse-stacks',
         label: 'Browse Stack'
-    },
-    {
-        value: 'changeLater',
-        label: 'Delete Later'
-    },
-    {
-        value: 'profile',
-        label: 'Delete Later 2'
     }
 ];
 
@@ -50,12 +45,6 @@ const Navigation = () => {
                                 <li className='nav-item'>
                                     <Link to='/browse-stacks'>Browse Stacks</Link>
                                 </li>
-                                <li className='nav-item'>
-                                    <Link to='/changeLater'>Delete Later</Link>
-                                </li>
-                                <li className='nav-item'>
-                                    <Link to='/profile'>Delete Later 2</Link>
-                                </li>
                             </ul>
 
                             <Select
@@ -79,6 +68,8 @@ const Navigation = () => {
                                     <Link to='/signup'>SignUp</Link>
                                 </li>
                             </ul>
+                            <AccountDropdown />
+                            {/* TODO: Add check when to display username */}
                         </div>
                     </div>
                 </div>
