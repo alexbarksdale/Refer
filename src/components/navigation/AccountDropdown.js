@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { logoutUser } from '../actions/authActions';
 import avatar from '../../assets/images/defaultAvatar.jpg';
 import './accountDropdown.scss';
 
-const AccountDropdown = () => {
+// eslint-disable-next-line no-shadow
+const AccountDropdown = ({ username, logoutUser }) => {
     // references the outer div
     const node = useRef();
     const [dropdown, setDropdown] = useState(false);
@@ -13,7 +17,6 @@ const AccountDropdown = () => {
         if (node.current.contains(e.target)) {
             return;
         }
-
         setDropdown(false);
     };
 
@@ -30,7 +33,7 @@ const AccountDropdown = () => {
             <div className='user-dropdown'>
                 <button className='btn' type='button' onClick={() => setDropdown(!dropdown)}>
                     <img src={avatar} alt='Profile Avatar' height='40px' width='40px' />
-                    Username
+                    {username}
                     <i
                         className='fas fa-caret-down'
                         style={{ transform: dropdown ? 'rotate(180deg) scaleX(-1)' : 'none' }}
@@ -39,13 +42,12 @@ const AccountDropdown = () => {
 
                 {dropdown ? (
                     <ul>
-                        {/* Is there a cleaner way to do this (onClick)? */}
                         <Link to='/profile' onClick={() => setDropdown(!dropdown)}>
                             <li className='user-profile'>
-                                Username
+                                {username}
                                 <p>
                                     refer.gg/
-                                    <span className='refergg'>username</span>
+                                    <span className='refergg'>{username}</span>
                                 </p>
                             </li>
                         </Link>
@@ -57,7 +59,7 @@ const AccountDropdown = () => {
                             </li>
                         </Link>
                         <div className='drop-divider' />
-                        <Link to='/' onClick={() => setDropdown(!dropdown)}>
+                        <Link to='/login' onClick={() => logoutUser()}>
                             <li>
                                 <i className='fas fa-sign-out-alt' />
                                 Log Out
@@ -70,4 +72,17 @@ const AccountDropdown = () => {
     );
 };
 
-export default AccountDropdown;
+AccountDropdown.propTypes = {
+    username: PropTypes.string,
+    logoutUser: PropTypes.func.isRequired
+};
+
+AccountDropdown.defaultProps = {
+    username: null
+};
+
+const mapStateToProps = (state) => ({
+    username: state.authReducer.user.username
+});
+
+export default connect(mapStateToProps, { logoutUser })(AccountDropdown);

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
 import history from '../../history';
 import AccountDropdown from './AccountDropdown';
-import Toggle from '../utils/Toggle';
 import logo from '../../assets/images/refergg.png';
-import avatar from '../../assets/images/defaultAvatar.jpg';
 import './navigation.scss';
 
 const options = [
@@ -19,8 +19,8 @@ const options = [
     }
 ];
 
-const Navigation = () => {
-    const [display, setDisplay] = useState(true);
+const Navigation = ({ username }) => {
+    const [displayDropdown, setDisplayDropdown] = useState(true);
 
     const navChange = (selectedOption) => {
         history.push(`/${selectedOption.value}`);
@@ -32,11 +32,18 @@ const Navigation = () => {
                 <div className='container nav-container'>
                     <div className='nav-header'>
                         <img src={logo} alt='ReferGG' />
-                        <button type='button' className='btn' onClick={() => setDisplay(!display)}>
+                        <button
+                            type='button'
+                            className='btn'
+                            onClick={() => setDisplayDropdown(!displayDropdown)}
+                        >
                             <i className='fas fa-bars' />
                         </button>
                     </div>
-                    <div className='nav-content' style={{ display: display ? 'none' : 'flex' }}>
+                    <div
+                        className='nav-content'
+                        style={{ display: displayDropdown ? 'none' : 'flex' }}
+                    >
                         <div className='main-navigation'>
                             <ul className='primary-navigation' style={{ marginLeft: '35px' }}>
                                 <li className='nav-item'>
@@ -56,20 +63,22 @@ const Navigation = () => {
                         </div>
 
                         <div className='searchbar-container' style={{ marginRight: '25px' }}>
-                            <input type='search' name='' placeholder='Search....' />
+                            <input type='search' name='' placeholder='Coming soon....' />
                         </div>
 
                         <div className='sub-navigation'>
-                            <ul className='secondary-navigation'>
-                                <li className='nav-item'>
-                                    <Link to='/login'>Login</Link>
-                                </li>
-                                <li className='nav-item'>
-                                    <Link to='/signup'>SignUp</Link>
-                                </li>
-                            </ul>
-                            <AccountDropdown />
-                            {/* TODO: Add check when to display username */}
+                            {!username ? (
+                                <ul className='secondary-navigation'>
+                                    <li className='nav-item'>
+                                        <Link to='/login'>Login</Link>
+                                    </li>
+                                    <li className='nav-item'>
+                                        <Link to='/signup'>SignUp</Link>
+                                    </li>
+                                </ul>
+                            ) : (
+                                <AccountDropdown />
+                            )}
                         </div>
                     </div>
                 </div>
@@ -78,4 +87,16 @@ const Navigation = () => {
     );
 };
 
-export default Navigation;
+Navigation.propTypes = {
+    username: PropTypes.string
+};
+
+Navigation.defaultProps = {
+    username: null
+};
+
+const mapStateToProps = (state) => {
+    return { username: state.authReducer.user.username };
+};
+
+export default connect(mapStateToProps)(Navigation);

@@ -79,6 +79,15 @@
 // ------------------------
 // SEARCHBAR PROPERTIES
 // ------------------------
+// ! Remove when working on searchbar
+.searchbar-container {
+    opacity: 0.5;
+    cursor: not-allowed;
+    input {
+        pointer-events: none;
+    }
+}
+
 .searchbar-container,
 .res-searchbar-container {
     input {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { refergg } from '../../axios';
 import history from '../../history';
@@ -126,6 +127,13 @@ class Signup extends Component {
                             Sign Up
                         </button>
                     </div>
+                    <p>
+                        Already have an account?
+                        <Link to='/login' className='refergg'>
+                            {' '}
+                            LOG IN
+                        </Link>
+                    </p>
                 </form>
             </div>
         );
