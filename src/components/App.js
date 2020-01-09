@@ -11,6 +11,7 @@ import Navigation from './navigation/Navigation';
 import Announcement from './announcement/Announcement';
 import Home from './home/Home';
 import Authentication from './authentication/Authentication';
+import PrivateRoute from './utils/PrivateRoute';
 import UserDashboard from './userDashboard/UserDashboard';
 import UserProfile from './userProfile/UserProfile';
 import Footer from './footer/Footer';
@@ -28,19 +29,22 @@ export default () => {
         <div>
             <div className='content'>
                 <div className='main'>
-                    <Provider store={store}>
-                        <Router history={history}>
+                    <Router history={history}>
+                        <Provider store={store}>
                             <Navigation />
                             <Announcement />
 
-                            <div>
+                            <>
                                 <div className='container' style={{ marginTop: '35px' }}>
                                     <Route path='/' exact component={Home} />
                                     <Switch>
                                         <Route path='/browse-stacks' exact component={Home} />
                                         <Route path='/changeLater' exact component={UserProfile} />
-                                        <Route path='/settings' exact component={UserDashboard} />
-
+                                        <PrivateRoute
+                                            path='/settings'
+                                            exact
+                                            component={UserDashboard}
+                                        />
                                         <Route
                                             path='/login'
                                             exact
@@ -54,9 +58,9 @@ export default () => {
                                         <Route path='/:userName' exact component={UserProfile} />
                                     </Switch>
                                 </div>
-                            </div>
-                        </Router>
-                    </Provider>
+                            </>
+                        </Provider>
+                    </Router>
                 </div>
             </div>
             <Footer />

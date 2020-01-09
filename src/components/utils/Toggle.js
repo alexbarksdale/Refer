@@ -4,21 +4,21 @@ export default class Toggle extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            edit: false
+            dropdown: false
         };
     }
 
     toggle = () => {
-        const { edit } = this.state;
-        this.setState({ edit: !edit });
+        const { dropdown } = this.state;
+        this.setState({ dropdown: !dropdown });
     };
 
     render() {
         const { children } = this.props;
-        const { edit } = this.state;
+        const { dropdown } = this.state;
 
         return children({
-            edit,
+            dropdown,
             toggle: this.toggle
         });
     }
