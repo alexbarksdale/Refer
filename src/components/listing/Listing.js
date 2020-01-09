@@ -30,9 +30,7 @@ class Listing extends Component {
             );
         }
 
-        return (
-            <div>You should not see this message. Please add the appropriate props.</div>
-        );
+        return <div>You should not see this message. Please add the appropriate props.</div>;
     }
 
     /*
@@ -47,6 +45,9 @@ class Listing extends Component {
                     <div className='listings'>
                         {this.ListingType()}
                         <ul>
+                            <li>
+                                <SmallProfile />
+                            </li>
                             <li>
                                 <SmallProfile />
                             </li>
