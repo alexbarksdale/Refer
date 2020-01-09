@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/authActions';
 import Toggle from '../utils/Toggle';
 import './accountSettings.scss';
 
-const AccountSettings = () => {
+const AccountSettings = ({ user }) => {
     const EditBtn = (toggleBtn) => {
         return (
             <button className='btn btn-edit' type='button' onClick={toggleBtn}>
@@ -42,8 +45,9 @@ const AccountSettings = () => {
                                 Display Name
                                 {EditBtn(toggle)}
                             </h4>
-                            <p>DisplayName</p>
-                            {dropdown && EditPropertiesForm('displayName', 'DisplayName', toggle)}
+                            <p>{user.displayname}</p>
+                            {dropdown &&
+                                EditPropertiesForm('displayName', `${user.displayname}`, toggle)}
                         </div>
                     )}
                 </Toggle>
@@ -57,8 +61,8 @@ const AccountSettings = () => {
                                 Username
                                 {EditBtn(toggle)}
                             </h4>
-                            <p>Username</p>
-                            {dropdown && EditPropertiesForm('username', 'Username', toggle)}
+                            <p>{user.username}</p>
+                            {dropdown && EditPropertiesForm('username', `${user.username}`, toggle)}
                         </div>
                     )}
                 </Toggle>
@@ -72,8 +76,8 @@ const AccountSettings = () => {
                                 Email
                                 {EditBtn(toggle)}
                             </h4>
-                            <p>example@gmail.com</p>
-                            {dropdown && EditPropertiesForm('email', 'example@gmail.com', toggle)}
+                            <p>{user.email}</p>
+                            {dropdown && EditPropertiesForm('email', `${user.email}`, toggle)}
                         </div>
                     )}
                 </Toggle>
@@ -104,4 +108,20 @@ const AccountSettings = () => {
     );
 };
 
-export default AccountSettings;
+AccountSettings.propTypes = {
+    user: PropTypes.shape({
+        id: PropTypes.string,
+        email: PropTypes.string,
+        password: PropTypes.string,
+        username: PropTypes.string,
+        displayname: PropTypes.string,
+        dob: PropTypes.string,
+        platforms: PropTypes.array
+    }).isRequired
+};
+
+const mapStateToProps = (state) => ({
+    user: state.authReducer.user
+});
+
+export default connect(mapStateToProps, { loginUser })(AccountSettings);
