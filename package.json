@@ -1,6 +1,6 @@
 {
     "name": "refergg",
-    "authors": "@damansahi, @noahkrause, @alexbarksdale, @nirmalvett",
+    "authors": "@alexbarksdale",
     "description": "A platform for gamers to store all their accounts to easily refer to others.",
     "version": "0.1.0",
     "private": true,
@@ -13,6 +13,8 @@
         "cors": "^2.8.5",
         "formik": "^2.1.1",
         "history": "^4.10.1",
+        "is-empty": "^1.2.0",
+        "jwt-decode": "^2.2.0",
         "mongoose": "^5.8.4",
         "mongoose-validator": "^2.1.0",
         "passport": "^0.4.1",
@@ -27,6 +29,7 @@
         "react-select": "^3.0.8",
         "react-toastify": "^5.5.0",
         "redux": "^4.0.5",
+        "redux-thunk": "^2.3.0",
         "yup": "^0.28.0"
     },
     "scripts": {

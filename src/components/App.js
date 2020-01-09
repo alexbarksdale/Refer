@@ -1,6 +1,10 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import { toast } from 'react-toastify';
+import rootReducer from './reducers';
 import 'react-toastify/dist/ReactToastify.css';
 import history from '../history';
 import Navigation from './navigation/Navigation';
@@ -12,6 +16,8 @@ import UserProfile from './userProfile/UserProfile';
 import Footer from './footer/Footer';
 import './app.scss';
 
+const store = createStore(rootReducer, {}, compose(applyMiddleware(thunk)));
+
 export default () => {
     toast.configure({
         autoclose: 10000,
@@ -22,33 +28,35 @@ export default () => {
         <div>
             <div className='content'>
                 <div className='main'>
-                    <Router history={history}>
-                        <Navigation />
-                        <Announcement />
+                    <Provider store={store}>
+                        <Router history={history}>
+                            <Navigation />
+                            <Announcement />
 
-                        <div>
-                            <div className='container' style={{ marginTop: '35px' }}>
-                                <Route path='/' exact component={Home} />
-                                <Switch>
-                                    <Route path='/browse-stacks' exact component={Home} />
-                                    <Route path='/changeLater' exact component={UserProfile} />
-                                    <Route path='/settings' exact component={UserDashboard} />
+                            <div>
+                                <div className='container' style={{ marginTop: '35px' }}>
+                                    <Route path='/' exact component={Home} />
+                                    <Switch>
+                                        <Route path='/browse-stacks' exact component={Home} />
+                                        <Route path='/changeLater' exact component={UserProfile} />
+                                        <Route path='/settings' exact component={UserDashboard} />
 
-                                    <Route
-                                        path='/login'
-                                        exact
-                                        render={() => <Authentication isTypeLogin />}
-                                    />
-                                    <Route
-                                        path='/signup'
-                                        exact
-                                        render={() => <Authentication isTypeLogin={false} />}
-                                    />
-                                    <Route path='/:userName' exact component={UserProfile} />
-                                </Switch>
+                                        <Route
+                                            path='/login'
+                                            exact
+                                            render={() => <Authentication isTypeLogin />}
+                                        />
+                                        <Route
+                                            path='/signup'
+                                            exact
+                                            render={() => <Authentication isTypeLogin={false} />}
+                                        />
+                                        <Route path='/:userName' exact component={UserProfile} />
+                                    </Switch>
+                                </div>
                             </div>
-                        </div>
-                    </Router>
+                        </Router>
+                    </Provider>
                 </div>
             </div>
             <Footer />
