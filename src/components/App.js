@@ -35,7 +35,6 @@ export default () => {
                         <Provider store={store}>
                             <Navigation />
                             <Announcement />
-                            <StatusMsgs />
                             <Route path='/' exact component={Home} />
                             <>
                                 <div className='container' style={{ marginTop: '35px' }}>
