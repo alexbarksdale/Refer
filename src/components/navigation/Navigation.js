@@ -49,9 +49,13 @@ const Navigation = ({ username }) => {
                                 <li className='nav-item'>
                                     <Link to='/'>Home</Link>
                                 </li>
-                                <li className='nav-item'>
-                                    <Link to='/browse-stacks'>Browse Stacks</Link>
-                                </li>
+                                <div className='no-access'>
+                                    <li className='nav-item'>
+                                        <Link to='/browse-stacks' className='not-avail'>
+                                            Browse Stacks
+                                        </Link>
+                                    </li>
+                                </div>
                             </ul>
 
                             <Select

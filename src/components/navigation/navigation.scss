@@ -3,6 +3,16 @@
 // ########################
 // NAVIGATION PROPERTIES
 // ########################
+// ! Remove later
+.no-access {
+    cursor: not-allowed !important;
+}
+
+.not-avail {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
 .navigation {
     display: flex;
     align-items: center;
