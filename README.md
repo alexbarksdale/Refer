@@ -13,6 +13,8 @@
 ## About
 Please note that this project is still **early** in development. ReferGG is targeted towards gamers and acts as a keychain to store accounts and platforms you use to easily refer to others through a simple url, refer.gg. The goal was to remove the hassle of having to remember different aliases and instead allow the user to store everything under one place to share to others. 
 
+View the site live [here](http://refer.gg/).
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -42,7 +44,7 @@ npm install
 
 ----------------------------------------------------------------
 ## IMPORTANT
-You will need to use a database to get this project running on your machine. Feel free to use any database you want. The instructions below only apply to those using MongoDB. [Visit here](http://refer.gg/)
+You will need to use a database to get this project running on your machine. Feel free to use any database you want. The instructions below only apply to those using MongoDB.
 
 ### MongoDB Atlas Setup
 1. Before setting up your Atlas, make sure you installed dotenv with npm. You can find it [here](https://www.npmjs.com/package/dotenv).
