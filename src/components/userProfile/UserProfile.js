@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import UserProfileCard from './UserProfileCard';
 import Listing from '../listing/Listing';
-import './userProfile.scss';
 import { refergg } from '../../axios';
+import './userProfile.scss';
 
 class UserProfile extends Component {
     constructor(props) {

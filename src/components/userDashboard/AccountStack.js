@@ -5,11 +5,16 @@ import { loginUser } from '../actions/authActions';
 import './accountStack.scss';
 
 const oAuthSteam = (user) => {
-    const popupWindow = window.open(`auth/steamlogin/${user.email}`, '_blank', 'width=800, height=600');
+    const popupWindow = window.open(
+        `auth/steamlogin/${user.email}`,
+        '_blank',
+        'width=800, height=600'
+    );
     if (window.focus) popupWindow.focus();
 };
 
 const AccountStack = ({ user }) => {
+    console.log(user);
     return (
         <div>
             <div className='db-property'>
@@ -20,7 +25,16 @@ const AccountStack = ({ user }) => {
                     </button>
                 </h4>
                 <div className='db-stack' style={{ marginBottom: '20px' }}>
-                    TODO: Add accounts here
+                    {user.platforms && user.platforms.length > 0 ? (
+                        <button className='btn' type='button'>
+                            <img
+                                src='https://img.icons8.com/ios-filled/30/000000/steam-circled.png'
+                                alt='Steam Icon'
+                            />
+                        </button>
+                    ) : (
+                        <p>No connected accounts</p>
+                    )}
                 </div>
 
                 <h4>
@@ -68,7 +82,6 @@ const AccountStack = ({ user }) => {
         </div>
     );
 };
-
 
 AccountStack.propTypes = {
     user: PropTypes.shape({
