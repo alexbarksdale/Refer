@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
-
-// Acknowledgement: Received help from my friend Daman Sahi for the backend
+const auth = require('../auth');
 
 router.route('/signup').post((req, res) => {
     const user = new User({
@@ -23,7 +22,6 @@ router.route('/login').post((req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {
         if (!user) return res.status(400).json({ message: 'User not found.' });
 
-        // Checks if passwords are the same
         user.comparePassword(req.body.password, (compareErr, isMatch) => {
             if (compareErr) throw compareErr;
             if (!isMatch) return res.status(400).json({ message: 'Incorrect password.' });
@@ -52,11 +50,12 @@ router.route('/login').post((req, res) => {
     });
 });
 
-router.route('/update').post((req, res) => {
+router.route('/update').post(auth.required, (req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {
         if (!user) return res.status(400).json({ message: 'User not found.' });
-        if (!req.body.update)
+        if (!req.body.update) {
             return res.status(400).json({ message: 'No fields to update provided' });
+        }
 
         Object.keys(req.body.update).forEach((key) => {
             // eslint-disable-next-line no-param-reassign
@@ -70,9 +69,8 @@ router.route('/update').post((req, res) => {
     });
 });
 
-// Gets the user
 router.route('/get/:userName').get((req, res) => {
-    User.findOne({ username: req.params.userName }, 'username', (err, user) => {
+    User.findOne({ username: req.params.userName }, (err, user) => {
         if (!user) return res.status(400).json({ message: 'User not found.' });
         return res.status(200).json(user);
     });
