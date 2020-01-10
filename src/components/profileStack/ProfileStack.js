@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './profileStack.scss';
 
-const ProfileStack = () => {
+const ProfileStack = ({ user }) => {
     return (
         <div className='profile-stack'>
             <h3>Profile Stack</h3>
@@ -14,36 +15,40 @@ const ProfileStack = () => {
                 {/* <p className='no-stack'>No stack available.</p> */}
                 <ul>
                     <li>
-                        <a href=''>
+                        <a
+                            href={
+                                user.platforms && user.platforms.length > 0
+                                    ? `${user.platforms[0].url}`
+                                    : 'test'
+                            }
+                        >
                             <img
                                 src='https://img.icons8.com/ios-filled/25/000000/steam-circled.png'
                                 alt='Steam Icon'
                             />
-                            Example
-                        </a>
-                    </li>
-                    <li>
-                        <a href=''>
-                            <img
-                                src='https://img.icons8.com/ios-glyphs/25/000000/battle-net.png'
-                                alt='Battle.net Icon'
-                            />
-                            Example#51235
-                        </a>
-                    </li>
-                    <li>
-                        <a href=''>
-                            <img
-                                src='https://img.icons8.com/ios-filled/25/000000/epic-games.png'
-                                alt='Epic Games Icon'
-                            />
-                            Example
+                            {user.platforms && user.platforms.length > 0
+                                ? `${user.platforms[0].name}`
+                                : 'Default'}
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     );
+};
+
+ProfileStack.propTypes = {
+    user: PropTypes.shape({
+        username: PropTypes.string,
+        platforms: PropTypes.array
+    })
+};
+// ! TODO Use currently authenticated user?
+ProfileStack.defaultProps = {
+    user: {
+        username: 'Default',
+        platforms: []
+    }
 };
 
 export default ProfileStack;

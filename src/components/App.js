@@ -4,16 +4,17 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { toast } from 'react-toastify';
-import rootReducer from './reducers';
 import 'react-toastify/dist/ReactToastify.css';
+import rootReducer from './reducers';
 import history from '../history';
 import Navigation from './navigation/Navigation';
 import Announcement from './announcement/Announcement';
 import Home from './home/Home';
+import StatusMsgs from './utils/StatusMsgs';
+import UserProfile from './userProfile/UserProfile';
 import Authentication from './authentication/Authentication';
 import PrivateRoute from './utils/PrivateRoute';
 import UserDashboard from './userDashboard/UserDashboard';
-import UserProfile from './userProfile/UserProfile';
 import Footer from './footer/Footer';
 import './app.scss';
 
@@ -25,6 +26,7 @@ export default () => {
         draggable: false,
         position: toast.POSITION.BOTTOM_RIGHT
     });
+
     return (
         <div>
             <div className='content'>
@@ -33,13 +35,12 @@ export default () => {
                         <Provider store={store}>
                             <Navigation />
                             <Announcement />
-
+                            <StatusMsgs />
                             <Route path='/' exact component={Home} />
                             <>
                                 <div className='container' style={{ marginTop: '35px' }}>
                                     <Switch>
-                                        <Route path='/browse-stacks' exact component={Home} />
-                                        <Route path='/changeLater' exact component={UserProfile} />
+                                        <Route path='/browse-stacks' exact />
                                         <PrivateRoute
                                             path='/settings'
                                             exact

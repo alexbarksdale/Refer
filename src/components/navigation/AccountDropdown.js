@@ -42,7 +42,7 @@ const AccountDropdown = ({ username, logoutUser }) => {
 
                 {dropdown ? (
                     <ul>
-                        <Link to={`/${username}`} onClick={() => setDropdown(!dropdown)}>
+                        <Link to='/profile' onClick={() => setDropdown(!dropdown)}>
                             <li className='user-profile'>
                                 {username}
                                 <p>

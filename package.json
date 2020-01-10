@@ -1,7 +1,7 @@
 {
     "name": "refergg",
-    "authors": "@alexbarksdale",
-    "description": "A platform for gamers to store all their accounts to easily refer to others with a shore url.",
+    "authors": "@damansahi, @noahkrause, @alexbarksdale, @nirmalvett",
+    "description": "A platform for gamers to store all their accounts to easily refer to others.",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -10,13 +10,16 @@
         "@testing-library/user-event": "^7.2.1",
         "axios": "^0.19.0",
         "bcrypt": "^3.0.7",
+        "concurrently": "^5.0.2",
         "cors": "^2.8.5",
         "formik": "^2.1.1",
         "history": "^4.10.1",
+        "http-proxy-middleware": "^0.20.0",
         "is-empty": "^1.2.0",
         "jwt-decode": "^2.2.0",
         "mongoose": "^5.8.4",
         "mongoose-validator": "^2.1.0",
+        "nodemon": "^2.0.2",
         "passport": "^0.4.1",
         "passport-jwt": "^4.0.0",
         "prop-types": "^15.7.2",
@@ -29,6 +32,7 @@
         "react-scripts": "3.3.0",
         "react-select": "^3.0.8",
         "react-toastify": "^5.5.0",
+        "react-tooltip": "^3.11.2",
         "redux": "^4.0.5",
         "redux-thunk": "^2.3.0",
         "yup": "^0.28.0"
@@ -37,8 +41,11 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "server": "node api/src/index.js",
+        "dev": "concurrently --kill-others \"npm run start\" \"npm run server\""
     },
+    "proxy": "http://localhost:5000",
     "eslintConfig": {
         "extends": "react-app"
     },

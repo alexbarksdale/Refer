@@ -53,7 +53,7 @@
 // ------------------------
 .profile-user {
     display: grid;
-    grid-template-columns: 0px 1fr 469px;
+    grid-template-columns: 0px 1fr 500px;
 
     margin: 14px;
 }
@@ -63,6 +63,7 @@
 // ------------------------
 .profile-sub {
     margin-top: 52px;
+    margin-right: 58px;
 }
 
 .profile-items {
@@ -115,6 +116,7 @@
 
     .profile-sub {
         margin-top: 13px;
+        margin-right: 0px;
     }
 }
 

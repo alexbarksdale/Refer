@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
+import { fetchProfile } from '../actions/authActions';
 import history from '../../history';
 import AccountDropdown from './AccountDropdown';
 import logo from '../../assets/images/refergg.png';
@@ -19,8 +20,12 @@ const options = [
     }
 ];
 
-const Navigation = ({ username }) => {
+const Navigation = ({ username, fetchProfile }) => {
     const [displayDropdown, setDisplayDropdown] = useState(true);
+
+    useEffect(() => {
+        fetchProfile();
+    }, []);
 
     const navChange = (selectedOption) => {
         history.push(`/${selectedOption.value}`);
@@ -31,7 +36,9 @@ const Navigation = ({ username }) => {
             <div className='navigation'>
                 <div className='container nav-container'>
                     <div className='nav-header'>
-                        <img src={logo} alt='ReferGG' />
+                        <Link to='/'>
+                            <img src={logo} alt='ReferGG' />
+                        </Link>
                         <button
                             type='button'
                             className='btn'
@@ -103,4 +110,4 @@ const mapStateToProps = (state) => {
     return { username: state.authReducer.user.username };
 };
 
-export default connect(mapStateToProps)(Navigation);
+export default connect(mapStateToProps, { fetchProfile })(Navigation);

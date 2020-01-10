@@ -62,7 +62,7 @@ const UserProfileCard = (props) => {
                                 </p>
                             </div>
                         </div>
-                        <ProfileStack />
+                        <ProfileStack user={user} />
                     </div>
                 </div>
             </div>

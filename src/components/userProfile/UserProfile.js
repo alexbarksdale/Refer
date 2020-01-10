@@ -8,7 +8,6 @@ import { refergg } from '../../axios';
 class UserProfile extends Component {
     constructor(props) {
         super(props);
-
         this.state = { user: undefined };
     }
 

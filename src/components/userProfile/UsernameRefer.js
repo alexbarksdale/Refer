@@ -1,24 +1,29 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 import PropTypes from 'prop-types';
 import './usernameRefer.scss';
 
-/*
-Notes:
- - May have to change to class component
-*/
-
 const UsernameRefer = (props) => {
     const { usernameSize, linkSize, user } = props;
+
     return (
         <div className='profile-main'>
+            <ReactTooltip place='bottom' />
             <h1 style={{ fontSize: `${usernameSize}px` }}>{user.username}</h1>
-            <p>
-                refer.gg/
-                <span className='refergg' style={{ fontSize: `${linkSize}px` }}>
-                    {/* {user.username.replace('/^\w/', c => c.toUpperCase())} */}
-                    {user.username}
-                </span>
-            </p>
+            <div data-tip='Copied' data-event='click'>
+                <button
+                    className='btn'
+                    type='button'
+                    data-tip='Click to copy'
+                    value={`refer.gg/${user.username}`}
+                >
+                    refer.gg/
+                    <span className='refergg' style={{ fontSize: `${linkSize}px` }}>
+                        {/* {user.username.replace('/^\w/', c => c.toUpperCase())} */}
+                        {user.username}
+                    </span>
+                </button>
+            </div>
         </div>
     );
 };

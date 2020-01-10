@@ -1,7 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/authActions';
 import './accountStack.scss';
 
-const AccountStack = () => {
+const oAuthSteam = (user) => {
+    const popupWindow = window.open(`auth/steamlogin/${user.email}`, '_blank', 'width=800, height=600');
+    if (window.focus) popupWindow.focus();
+};
+
+const AccountStack = ({ user }) => {
     return (
         <div>
             <div className='db-property'>
@@ -22,13 +30,16 @@ const AccountStack = () => {
                     </button> */}
                 </h4>
                 <div className='db-stack'>
-                    <button className='btn' type='button'>
+                    <button className='btn' type='button' onClick={() => oAuthSteam(user)}>
                         <img
                             src='https://img.icons8.com/ios-filled/30/000000/steam-circled.png'
                             alt='Steam Icon'
                         />
                     </button>
-                    <button className='btn' type='button'>
+
+                    {/* <a className='btn' type='button' href='auth/steam'>
+                    </a> */}
+                    <button className='btn disabled' type='button'>
                         <img
                             src='https://img.icons8.com/ios-glyphs/30/000000/battle-net.png'
                             alt='Battle.net Icon'
@@ -58,4 +69,21 @@ const AccountStack = () => {
     );
 };
 
-export default AccountStack;
+
+AccountStack.propTypes = {
+    user: PropTypes.shape({
+        id: PropTypes.string,
+        email: PropTypes.string,
+        password: PropTypes.string,
+        username: PropTypes.string,
+        displayname: PropTypes.string,
+        dob: PropTypes.string,
+        platforms: PropTypes.array
+    }).isRequired
+};
+
+const mapStateToProps = (state) => ({
+    user: state.authReducer.user
+});
+
+export default connect(mapStateToProps, { loginUser })(AccountStack);

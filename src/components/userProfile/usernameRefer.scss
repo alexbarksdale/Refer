@@ -8,6 +8,15 @@
         color: $gray-800;
     }
 
+    button {
+        font-size: 16px;
+        color: $gray-450;
+
+        &:hover {
+            @include refer-hover;
+        }
+    }
+
     p {
         cursor: pointer;
         color: $gray-450;
