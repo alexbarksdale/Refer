@@ -19,3 +19,10 @@
         grid-template-columns: 1fr;
     }
 }
+
+// ! REMOVE LATER
+@media (max-width: 518px) {
+    .profile-item-wrapper {
+        display: none;
+    }
+}

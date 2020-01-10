@@ -1,6 +1,6 @@
 {
     "name": "refergg",
-    "authors": "@alexbarksdale",
+    "authors": "alexbarksdale",
     "description": "A platform for gamers to store all their accounts to easily refer to others.",
     "version": "0.1.0",
     "private": true,
