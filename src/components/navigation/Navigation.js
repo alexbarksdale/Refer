@@ -63,6 +63,9 @@ const Navigation = ({ username, fetchProfile }) => {
                                         </Link>
                                     </li>
                                 </div>
+                                <li className='nav-item'>
+                                    <Link to='/Alex'>Demo</Link>
+                                </li>
                             </ul>
 
                             <Select
