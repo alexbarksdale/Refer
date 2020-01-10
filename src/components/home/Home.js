@@ -24,7 +24,7 @@ const Home = () => {
                         <img src={referMock} alt='profile mockup' className='floating' />
                         <div className='shadow' />
                         <div className='feature-content'>
-                            <ScrollAnimation animateIn='fadeIn' delay='300'>
+                            <ScrollAnimation animateIn='fadeIn' delay={300}>
                                 <div className='feat-item'>
                                     <i className='fas fa-lock' />
                                     <h1>Protected</h1>
@@ -35,7 +35,7 @@ const Home = () => {
                                     </p>
                                 </div>
                             </ScrollAnimation>
-                            <ScrollAnimation animateIn='fadeIn' delay='400'>
+                            <ScrollAnimation animateIn='fadeIn' delay={400}>
                                 <div className='feat-item'>
                                     <i className='fas fa-users' />
                                     <h1>Explore and Connect</h1>
@@ -45,7 +45,7 @@ const Home = () => {
                                     </p>
                                 </div>
                             </ScrollAnimation>
-                            <ScrollAnimation animateIn='fadeIn' delay='500'>
+                            <ScrollAnimation animateIn='fadeIn' delay={500}>
                                 <div className='feat-item'>
                                     <i className='fas fa-id-card' />
                                     <h1>Customize</h1>

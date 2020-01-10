@@ -34,9 +34,9 @@ export default () => {
                             <Navigation />
                             <Announcement />
 
+                            <Route path='/' exact component={Home} />
                             <>
                                 <div className='container' style={{ marginTop: '35px' }}>
-                                    <Route path='/' exact component={Home} />
                                     <Switch>
                                         <Route path='/browse-stacks' exact component={Home} />
                                         <Route path='/changeLater' exact component={UserProfile} />
